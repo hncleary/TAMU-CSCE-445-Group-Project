@@ -156,11 +156,12 @@ header {
   background-color: #e3bacb;
 }
 
-/* .myBox2  {
-  position: absolute;
-  left: 0;
+.footerImage {
+  position: fixed;
   bottom: 0;
-} */
+  margin-left: 21%;
+}
+
 .bottomImage{
     display: block;
     margin-left: auto;
