@@ -154,6 +154,14 @@ header {
   background-color: #e3bacb;
 }
 
+.postPlantBox {
+  margin-top: 100px;
+  margin-left: 10%;
+  width: 75%;
+
+}
+
+
 .footerImage {
   position: fixed;
   bottom: 0;
@@ -180,6 +188,9 @@ header {
 #USERNAME {
   margin-top: 10px;
   font-size: 14pt;
+}
+
+.plantAttributes {
 }
 
 .infoContainer {
