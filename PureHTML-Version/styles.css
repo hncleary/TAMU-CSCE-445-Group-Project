@@ -181,6 +181,17 @@ header {
   margin-top: 75px;
 }
 
+.beeContainer {
+  margin-top: 100px;
+}
+
+.beeImage {
+  transition: all .2s ease-in-out;
+}
+.beeImage:hover {
+  transform: scale(1.1);
+}
+
 .avatarContainer {
   margin-top: 125px;
 
