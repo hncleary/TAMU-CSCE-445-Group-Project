@@ -63,8 +63,8 @@
     <ul class="menu__list">
       <a href="overview.html"> <li > Home </li> </a>
       <a href="account.html"><li> Account </li></a>
-      <a href="postPlant.html"> <li > Post a Plant </li> </a>
-      <a href="searchPlant.html"> <li class="currentMenuSelection"> Find a Plant </li> </a>
+      <a href="postPlant.html"> <li class="currentMenuSelection"> Post a Plant </li> </a>
+      <a href="searchPlant.html"> <li> Find a Plant </li> </a>
       <a href="beeMode.html"> <li> Bee Mode </li> </a>
     <ul>
   </nav>
@@ -80,9 +80,16 @@
         <!-- <div class = "page"> -->
         <div class="postPlantBox">
           <center>
-            <h1>Find a Plant</h1>
+            <h1>Post a Plant</h1>
           </center>
-          <row>
+
+            <div class = "data-entry">
+            <div class="form-group">
+                <p class = "input-label">Plant Name</p>
+                <input type="text" class="form-control" id="name">
+            </div>
+            
+            <row>
               <div class = "col lg-3">
                 Features
               </div>
@@ -183,20 +190,32 @@
                   </div>
               </div>
             </row>
-           <button type="button" class="btn btn-primary submitted">Find</button>
+                <br/>
+                <div class="form-group">
+                    <input type="file" onchange="previewFile()"><br>
+                  <img src="" id = "preview-image" height="200" alt="image">
+                </div>
+                <hr/>
+                <button class = "btn btn-primary" id = "locator" onclick = "getLocation()">Locate Plant</button>
+                <p class = "success_location"></p>
+                <div class="form-group">
+                    <label for="comment">Location Description:</label>
+                    <textarea class="form-control" rows="3" id="location_description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Plant Review:</label>
+                    <textarea class="form-control" rows="5" id="plant_review"></textarea>
+                </div>
 
-           </div>
-
-           <center>
-             <div class="infoContainer2">
-               <a href="plantFound.html"> Example Query Results <a>
-             </div>
-           </center>
-
+                
+                <hr/>
+                <button type="button" class="btn btn-primary" id = "submit_plant">Submit Plant</button>
+                
+                
+            </div>
+        <!-- </div> -->
       </div>
-      <center>
-        <div class="footerImage"> <img class="bottomImage" src="assets/plant-footer.png" width=700px> </div>
-      </center>
+      
     </div>
 
 
@@ -209,76 +228,26 @@
   </div>
 
 
-  <style>
-      .tag{
-        border-radius: 5px;
-        background-color: white;
-        border: 1px solid black;
-        display: inline;
-        padding: 5px;
-        margin: 5px;
-      }
-      .header{
-        font-weight: 700;
-        font-size: large;
 
-      }
-      .plant-pic{
-        width: 100%;
-      }
-      .name{
-        font-weight: 600;
-        font-size: larger;
-      }
 
-  </style>
-<script>
-  /*
-  POST:
-  {
-    'currX': 0.0000000,
-    'currY': 0.0000000,
-    'features': [],
-    'colors': [],
-    'type': []
-  }
-  RECIEVED:
-  {
-    'plants' : [{}. {}, {}    ]
-  }
-*/
-var result_heading = ' <h1>These plants look real nice, but are you gonna take an image\'s word for it? Go out there and see \'em!</h1>';
-      var start_results = '<div class = "result-container">';
-      var plant_name_start = '<p class = "plant-name name">'
-      var plant_name_end = '</p>';
-      var start_tag_holder = '<div class = "tag-holder">';
-      var tag_start = '<div class = "tag">';
-      var tag_end = '</div>';
-      var end_tag_holder = '</div>';
-      var hr = '<hr/>';
-      var start_row = '<div class="row">';
-      var col_img_start = '<div class="col-sm-12 col-lg-4">';
-      var img_start = '<img src = "" class ="plant-pic" id = "';
-      var img_end = '">';
-      var col_img_end = '</div>';
-      var col_content_start = '<div class="col-sm-12 col-lg-8">';
-      var plant_description_header = '<p class = "header">Plant Description</p>';
-      var plant_description_start = '<div class = "plant-description">';
-      var plant_description_end = '</div>';
-      var location_description_header = '<p class = "header">Location Description</p>';
-      var col_content_end = '</div>';
-      var end_row = '</div>';
-      var end_results = '</div>';
+    <script>
+      var imgurl;
+      function previewFile() {
+        console.log("gonna preview file");
+        var preview = document.getElementById('preview-image');
+        var file    = document.querySelector('input[type=file]').files[0];
+        var reader  = new FileReader();
 
-      var latitude = 0;
-      var longitude = 0;
-      function showPosition(position) {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-        $(".success_location").text("Success!");
-        console.log("latitude: ", latitude);
-        console.log("longitude: ", longitude);
+        reader.addEventListener("load", function () {
+          preview.src = reader.result;
+          imgurl = reader.result;
+        }, false);
+
+        if (file) {
+          reader.readAsDataURL(file);
+        }
       }
+      //var x = document.getElementById("demo");
       function getLocation() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition);
@@ -286,8 +255,33 @@ var result_heading = ' <h1>These plants look real nice, but are you gonna take a
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
       }
-      $(".submitted").click(()=>{
-        getLocation();
+      var geo;
+      /*
+      $("#locator").click((success)=>{
+        geo = navigator.geolocation;
+        var coords = geo.getCurrentPosition();
+        
+      });
+      */
+      var latitude;
+      var longitude;
+      function showPosition(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        $(".success_location").text("Success!");
+        console.log("latitude: ", latitude);
+        console.log("longitude: ", longitude);
+      }
+      function success(pos) {
+        var crd = pos.coords;
+
+        console.log('Your current position is:');
+        console.log(`Latitude : ${crd.latitude}`);
+        console.log(`Longitude: ${crd.longitude}`);
+        console.log(`More or less ${crd.accuracy} meters.`);
+      }
+      
+      $("#submit_plant").click(()=>{
         var colors = [];
         var features = [];
         var types = [];
@@ -303,19 +297,23 @@ var result_heading = ' <h1>These plants look real nice, but are you gonna take a
         //var myurl = document.getElementById("photo_input").getElementsByTagName("img")[0].src;   
         //alert(myurl);
         //var end_url;
-        //console.log("url of image: ", imgurl);
+        console.log("url of image: ", imgurl);
         //convertToDataURLviaCanvas(imgurl, end_url);
         //console.log(favorite);
         var form_object = {
+          "name": $('#name').val(),
           "features": features,
           "colors": colors,
           "types": types,
-          "currX": longitude,
-          "currY": latitude
+          "xCord": longitude,
+          "yCord": latitude,
+          "imageFile": imgurl,
+          "location_description": $("#location_description").val(),
+          "plant_review": $("#plant_review").val()
         };
-
+        console.log("form object", form_object);
         $.ajax({
-          url: 'http://localhost:5000/get-plants',
+          url: 'http://localhost:5000/submit/',
           headers: {
               "Access-Control-Allow-Origin": "*",
           },
@@ -323,55 +321,41 @@ var result_heading = ' <h1>These plants look real nice, but are you gonna take a
           method: 'POST',
           dataType: 'json',
           data: JSON.stringify(form_object),
-          success: function(plant) {
-            console.log("plant", plant);
-              var datas = plant.plants;
-              console.log("datas:",datas);
+          success: function(data) {
+              console.log(data);
               
-              var all_content = result_heading+start_results;
-              for(var h = 0; h < datas.length; h++){
-
-                all_content += plant_name_start;
-                all_content += datas[h].name + plant_name_end + start_tag_holder;
-                
-                for(var i = 0; i < datas[h].features.length; i++){
-                  console.log("current feature: ", datas[h].features[i]);
-                  all_content += tag_start + datas[h].features[i] + tag_end;
-                }
-
-                for(var i = 0; i < datas[h].colors.length; i++){
-                  all_content += tag_start + datas[h].colors[i] + tag_end;
-                }
-                  
-                for(var i = 0; i < datas[h].types.length; i++){
-                  all_content += tag_start + datas[h].types[i] + tag_end;
-                }
-                  
-
-                all_content+=end_tag_holder + hr + start_row + col_img_start +img_start+h+img_end +  col_img_end;
-                all_content += col_content_start + plant_description_header + plant_description_start;
-                all_content += datas[h].plant_review;
-                all_content += plant_description_end +  location_description_header + plant_description_start + datas[h].location_description + plant_description_end + '<a href = "https://maps.google.com/?q='+datas[h].yCord+','+datas[h].xCord+'" target = "_blank">Check it out!</a>'+col_content_end +end_row + '<hr/><br/>';
-              }
-               all_content += end_results;
-
-              $(".postPlantBox").html(all_content);
-              for(var i = 0; i < datas.length; i++){
-                $('#'+i).attr('src', datas[i].imageFile);
-              }
-              //var formatted_content = 
-              
-             
-            },
-            error: function(jqXhr, textStatus, errorThrown) {
-                console.log(errorThrown)
-            }
+          },
+          error: function(jqXhr, textStatus, errorThrown) {
+              console.log(errorThrown)
+          }
         });
       });
 
-      
+      function convertToDataURLviaCanvas(url, callback, outputFormat){
+          var img = new Image();
+          img.crossOrigin = 'Anonymous';
+          img.onload = function(){
+              var canvas = document.createElement('CANVAS');
+              var context = canvas.getContext('2d');
+              var dataURL;
+              canvas.height = this.height;
+              canvas.width = this.width;
+              context.drawImage(this, 0, 0);
+              dataURL = canvas.toDataURL(outputFormat);
+              callback(dataURL);
+              canvas = null; 
+          };
+          img.src = url;
+      }
 
-</script>
+      //convertToDataURLviaCanvas('http://bit.ly/18g0VNp', function(base64Img){
+    // Base64DataURL
+      //});
+      /*
+      
+        */
+        
+    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="./app.js"></script>

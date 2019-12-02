@@ -8,6 +8,7 @@
   <title>Find My Flora Front-End</title>
   <link rel="stylesheet" href="./reset.css">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="styles.css">
   <!--  -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -67,25 +68,36 @@
           <!--  -->
           <!-- Enter Stuff Here -->
           <!--  -->
-          <center>
               <div class="infoContainer2">
-                <center>
                   <h2>BEE MODE </h2>
-                </center>
               </div>
-            </center>
           <div class="beeContainer">
-            <center>
+              
               <img src="assets/bee logo.png" height=350px class="beeImage">
-            </center>
           </div>
+          
 
+         
+
+          
+              
+              
+                  
+              
+                  
+                      
+                  
+                  
+                     
+                      
+                          
+                      
+                      
+         
           
 
         </div>
-        <center>
           <div class="footerImage"> <img class="bottomImage" src="assets/plant-footer.png" width=700px> </div>
-        </center>
       </div>
 
 
@@ -98,7 +110,29 @@
   </div>
 
 
+  <style>
+      .tag{
+        border-radius: 5px;
+        background-color: white;
+        border: 1px solid black;
+        display: inline;
+        padding: 5px;
+        margin: 5px;
+      }
+      .header{
+        font-weight: 700;
+        font-size: large;
 
+      }
+      .plant-pic{
+        width: 100%;
+      }
+      .name{
+        font-weight: 600;
+        font-size: larger;
+      }
+
+  </style>
     <script>
       /*
         POST:
@@ -111,55 +145,98 @@
           
         }
       */
-      $.ajax({
-        url: 'http://localhost:5000/recipe-search',
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-        },
-        contentType: 'application/json',
-        method: 'POST',
-        dataType: 'json',
-        data: JSON.stringify(obj),
-        success: function(data) {
-            console.log(data);
-            console.log("about to parse the data");
-            var single_content = '';
-            var all_content = '<p class = "big-heading">Results</p>';
-            console.log("about to print data");
-            console.log(data);
-            console.log("about to print data.recipes");
-            console.log(data.recipes);
-            var recipes = data.recipes;
-            recipes.forEach((datum) => {
-                single_content = 
-                '<!--Dynamically rendered content-->'+
-                
-                '<div class = "meal item">'+
-                    '<p class = "heading">'+ datum.name +'</p>'+
-                    '<hr/>'+
-                    '<div class="row">'+
-                        '<div class="col-sm-4">'+
-                            '<img src = "'+(datum.image)+'" class = "goldy"></img>'+
-                        '</div>'+
-                        '<div class="col-sm-8">'+
-                            '<div class = "macro">'+(datum.protein)+'g Protein</div>'+
-                            '<div class = "macro">'+(datum.carbs)+'g Carbs</div>'+
-                            '<div class = "macro">'+(datum.fats)+'g Fats</div>'+
-                            '<div class = "macro">'+(datum.calories)+' Calories</div>'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-                '<!--end of dynamically rendered content-->';
-                all_content += single_content;
-            });
-            //var formatted_content = 
-            
-            $(".findRecipe").html(all_content);
-        },
-        error: function(jqXhr, textStatus, errorThrown) {
-            console.log(errorThrown)
+      var result_heading = ' <h1>Buzz Buzz... This one\'s pollen looks tasty!</h1>';
+      var start_results = '<div class = "result-container">';
+      var plant_name_start = '<p class = "plant-name name">'
+      var plant_name_end = '</p>';
+      var start_tag_holder = '<div class = "tag-holder">';
+      var tag_start = '<div class = "tag">';
+      var tag_end = '</div>';
+      var end_tag_holder = '</div>';
+      var hr = '<hr/>';
+      var start_row = '<div class="row">';
+      var col_img_start = '<div class="col-sm-12 col-lg-4">';
+      var img = '<img src = "" class ="plant-pic">';
+      var col_img_end = '</div>';
+      var col_content_start = '<div class="col-sm-12 col-lg-8">';
+      var plant_description_header = '<p class = "header">Plant Description</p>';
+      var plant_description_start = '<div class = "plant-description">';
+      var plant_description_end = '</div>';
+      var location_description_header = '<p class = "header">Location Description</p>';
+      var col_content_end = '</div>';
+      var end_row = '</div>';
+      var end_results = '</div>';
+
+      var latitude = 0;
+      var longitude = 0;
+      function showPosition(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        $(".success_location").text("Success!");
+        console.log("latitude: ", latitude);
+        console.log("longitude: ", longitude);
+      }
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
         }
-    });
+      }
+      $(".beeImage").click(()=>{
+        getLocation();
+        var obj = {
+        "currX": longitude,
+        "currY": latitude
+        };
+
+        $.ajax({
+          url: 'http://localhost:5000/bee-mode',
+          headers: {
+              "Access-Control-Allow-Origin": "*",
+          },
+          contentType: 'application/json',
+          method: 'POST',
+          dataType: 'json',
+          data: JSON.stringify(obj),
+          success: function(data) {
+              console.log(data);
+              
+              var all_content = result_heading+start_results+plant_name_start;
+              all_content += data.name + plant_name_end + start_tag_holder;
+              
+              for(var i = 0; i < data.features.length; i++){
+                console.log("current feature: ", data.features[i]);
+                all_content += tag_start + data.features[i] + tag_end;
+              }
+
+              for(var i = 0; i < data.colors.length; i++){
+                all_content += tag_start + data.colors[i] + tag_end;
+              }
+                
+              for(var i = 0; i < data.types.length; i++){
+                all_content += tag_start + data.types[i] + tag_end;
+              }
+                
+
+              all_content+=end_tag_holder + hr + start_row + col_img_start +img +  col_img_end;
+              all_content += col_content_start + plant_description_header + plant_description_start;
+              all_content += data.plant_review;
+              all_content += plant_description_end;
+
+              all_content += location_description_header + plant_description_start + data.location_description + plant_description_end + col_content_end +end_row + end_results;
+
+              //var formatted_content = 
+              
+              $(".postPlantBox").html(all_content);
+              $(".plant-pic").attr('src', data.imageFile);
+            },
+            error: function(jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown)
+            }
+        });
+      });
+    
     </script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

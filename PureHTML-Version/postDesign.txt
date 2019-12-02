@@ -1,0 +1,13 @@
+POST A PLANT
+
+Plant Name: ==========
+
+Plant Description: ================
+Upload Photo: [UPLOAD]
+
+Location Description:
+====================================
+====================================
+====================================
+
+[SUBMIT]

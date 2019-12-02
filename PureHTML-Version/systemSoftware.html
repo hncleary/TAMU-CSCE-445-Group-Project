@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="theme-color" content="#FFB300" />
+  <title>Thermon Genesis Panel Web Front-End</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./cookies.js" > </script>
+
+  <!-- <link rel="manifest" href="./manifest.json"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,medium&amp;lang=en" rel="stylesheet" type="text/css"> -->
+  <!--original links-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+</head>
+
+
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <!-- svg hamburger icon -->
+      <div class="menu__icon">
+        <svg width="24px" height="24px" viewBox="0 0 48 48" fill=black>
+          <path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path>
+        </svg>
+      </div>
+      <h1>      System Software</h1>
+    </div>
+
+    <div class="backMenu">
+      <div class="col"></div>
+
+        <a href="overview.html"> <img  class="menuIcon" src="images/back-arrow-black.png" height= 30px > </a>
+    </div>
+
+
+
+  </header>
+
+  <!-- menu  -->
+  <nav class="menu">
+    <div class="menu__header">
+      <img src="images/Thermon_Logo_HD.png" height = 275px>
+    </div>
+    <ul class="menu__list">
+      <a href="overview.html"> <li> Overview </li> </a>
+      <a href="circuitList.html"><li> Circuit List </li></a>
+      <a href="globalSettings.html"> <li> Global Settings </li> </a>
+      <a href="systemSoftware.html"> <li class="currentMenuSelection"> System Software </li> </a>
+      <a href="importExport.html"> <li> Import/Export </li> </a>
+      <a onclick="clearMemoryStorage()" href="#"> <li> Clear Local Memory </li> </a>
+      <!--
+      - To be deprecated -
+      <li><a href="#">Device List</a></li>
+      <li><a href="#">Load Software</a></li>
+    -->
+    <ul>
+  </nav>
+<!--
+  <div class="menu__overlay"></div>
+
+  <div class="main-container">
+    <div class="avatar"> </div>
+    <div class="sample">
+      <div> </div>
+      <div> </div>
+    </div>
+    <div class="sample-container"></div>
+  </div>
+-->
+<div class="main-container">
+
+    <!-- overlay  -->
+    <div class="menu__overlay"></div>
+
+    <div class="main-container">
+      <div class="sample-container">
+
+
+          <div class="myBoxSysSoftware">
+            <!-- place content here-->
+
+                <div class="rowSysSoftware">
+                  <div class="colSysSoftware"> Installed </div>
+                </div>
+
+                <div class="rowSysSoftware">
+                  <p class="ssPar"><strong> "Installed software description." </strong></p>
+                </div>
+
+
+
+                <div class="rowSysSoftware">
+                  <div class="colSysSoftware"> Updates </div>
+                </div>
+
+                <div class="rowSysSoftware">
+                  <p class="ssPar"> sample text, sample text, sample text, sample text, sample text </p>
+                </div>
+
+                <div class="rowSysSoftware2">
+                  <div class="colImEx2"> <button type="button" class="btn btn-dark btn-sm btn-block"> Mount USB Drive </button> </div>
+                </div>
+
+                <div class="rowSysSoftware2">
+                  <div class="colSysSoftware2"> Debug (Beta) </div>
+                </div>
+
+                <div class="rowSysSoftware">
+                  <p class="ssPar"> USB not mounted </p>
+                </div>
+
+          </div>
+
+
+
+
+        </div>
+
+        <!--   <div class="rowImEx"> -->
+        <!-- </div> -->
+
+
+
+
+
+
+    		<footer> ©2018 </footer>
+    	</div></div>
+    </div>
+
+    <script type="text/javascript" src="./app.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  	<script src="scripts.js">  </script>
+  </body>
+  </html>
