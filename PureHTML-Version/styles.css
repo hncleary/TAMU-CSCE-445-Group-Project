@@ -262,11 +262,11 @@ header {
 
 .row {
  clear: both;
- border: solid black;
- border-width: 0px 0px 1px 0px;
+ /*border: solid black;
+ border-width: 0px 0px 1px 0px;*/
  width :100%;
 }
-
+/*
 .row:hover{
   background: #d2d4d8;
 }
@@ -278,6 +278,7 @@ header {
 
 
 
+*/
 footer{
  clear: both;
 }

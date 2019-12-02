@@ -219,8 +219,71 @@
 
 
 
-
-
+<script>
+  /*
+  POST:
+  {
+    'currX': 0.0000000,
+    'currY': 0.0000000,
+    'features': [],
+    'colors': [],
+    'type': []
+  }
+  RECIEVED:
+  {
+    'plants' : [{}. {}, {}    ]
+  }
+*/
+$.ajax({
+  url: 'http://localhost:5000/recipe-search',
+  headers: {
+      "Access-Control-Allow-Origin": "*",
+  },
+  contentType: 'application/json',
+  method: 'POST',
+  dataType: 'json',
+  data: JSON.stringify(obj),
+  success: function(data) {
+      console.log(data);
+      console.log("about to parse the data");
+      var single_content = '';
+      var all_content = '<p class = "big-heading">Results</p>';
+      console.log("about to print data");
+      console.log(data);
+      console.log("about to print data.recipes");
+      console.log(data.recipes);
+      var recipes = data.recipes;
+      recipes.forEach((datum) => {
+          single_content = 
+          '<!--Dynamically rendered content-->'+
+          
+          '<div class = "meal item">'+
+              '<p class = "heading">'+ datum.name +'</p>'+
+              '<hr/>'+
+              '<div class="row">'+
+                  '<div class="col-sm-4">'+
+                      '<img src = "'+(datum.image)+'" class = "goldy"></img>'+
+                  '</div>'+
+                  '<div class="col-sm-8">'+
+                      '<div class = "macro">'+(datum.protein)+'g Protein</div>'+
+                      '<div class = "macro">'+(datum.carbs)+'g Carbs</div>'+
+                      '<div class = "macro">'+(datum.fats)+'g Fats</div>'+
+                      '<div class = "macro">'+(datum.calories)+' Calories</div>'+
+                  '</div>'+
+              '</div>'+
+          '</div>'+
+          '<!--end of dynamically rendered content-->';
+          all_content += single_content;
+      });
+      //var formatted_content = 
+      
+      $(".findRecipe").html(all_content);
+  },
+  error: function(jqXhr, textStatus, errorThrown) {
+      console.log(errorThrown)
+  }
+});
+</script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="./app.js"></script>

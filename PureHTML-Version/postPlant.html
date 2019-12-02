@@ -85,45 +85,137 @@
 
             <div class = "data-entry">
             <div class="form-group">
-                <label for="usr">Plant Name:</label>
-                <input type="text" class="form-control" id="usr">
+                <p class = "input-label">Plant Name</p>
+                <input type="text" class="form-control" id="name">
             </div>
-
-            <div class="form-check-inline">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="">Thorns
-                </label>
-            </div>
-            <div class="form-check-inline">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="">Purple
-                </label>
-            </div>
-            <div class="form-check-inline">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="">Barnabas
-                </label>
-            </div>
+            
+            <row>
+              <div class = "col lg-3">
+                Features
+              </div>
+              <div class = "col lg-9">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="thorns_feature" value="thorns" name = "feature">
+                  <label class="form-check-label" for="thorns_feature">Thorns</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="spines_feature" value="spines" name = "feature">
+                  <label class="form-check-label" for="spines_feature">Spines</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="succulent_feature" value="succulent" name = "feature">
+                  <label class="form-check-label" for="succulent_feature">Succulent</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="leafy_feature" value="leafy" name = "feature">
+                  <label class="form-check-label" for="leafy_feature">Leafy</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="bark_feature" value="bark" name = "feature">
+                  <label class="form-check-label" for="bark_feature">Bark</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="none_feature" value="none" name = "feature">
+                  <label class="form-check-label" for="none_feature">None Apply</label>
+                </div>
+              </div>
+            </row>
+            <row>
+              <div class = "col lg-3">
+                Colors
+              </div>
+              <div class = "col lg-9">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="red_color" value="red" name = "color">
+                  <label class="form-check-label" for="red_color">Red</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="orange_color" value="orange" name = "color">
+                  <label class="form-check-label" for="orange_color">Orange</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="yellow_color" value="yellow" name = "color">
+                  <label class="form-check-label" for="yellow_color">Yellow</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="green_color" value="green" name = "color">
+                  <label class="form-check-label" for="green_color">Green</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="blue_color" value="blue" name = "color">
+                  <label class="form-check-label" for="blue_color">Blue</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="violet_color" value="violet" name = "color">
+                  <label class="form-check-label" for="violet_color">Violet</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="pink_color" value="pink" name = "color">
+                    <label class="form-check-label" for="pink_color">Pink</label>
+                  </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="white_color" value="white" name = "color">
+                  <label class="form-check-label" for="white_color">White</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="black_color" value="black" name = "color">
+                  <label class="form-check-label" for="black_color">Black</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="none_color" value="none" name = "color">
+                  <label class="form-check-label" for="none_color">None Apply</label>
+                </div>
+              </div>
+            </row>
+            <row>
+              <div class = "col lg-3">
+                Type
+              </div>
+              <div class = "col lg-9">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="flower_type" value="flower" name = "type">
+                  <label class="form-check-label" for="flower_type">Flower</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="tree_type" value="tree" name = "type">
+                  <label class="form-check-label" for="tree_type">Tree</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="shrub_type" value="shrub" name = "type">
+                  <label class="form-check-label" for="shrub_type">Shrub</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="none_type" value="none" name = "type">
+                    <label class="form-check-label" for="none_type">None Apply</label>
+                  </div>
+              </div>
+            </row>
                 <br/>
+                <div class="form-group">
+                    <input type="file" onchange="previewFile()"><br>
+                  <img src="" id = "preview-image" height="200" alt="image">
+                </div>
                 <hr/>
-
+                <button class = "btn btn-primary" id = "locator" onclick = "getLocation()">Locate Plant</button>
+                <p class = "success_location"></p>
+                <div class="form-group">
+                    <label for="comment">Location Description:</label>
+                    <textarea class="form-control" rows="3" id="location_description"></textarea>
+                </div>
                 <div class="form-group">
                     <label for="comment">Plant Review:</label>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <textarea class="form-control" rows="5" id="plant_review"></textarea>
                 </div>
 
-                <div class="form-group">
-                        <label for="comment">Location Description:</label>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
-                    </div>
+                
                 <hr/>
-                <button type="button" class="btn btn-primary">UPLOAD PHOTO</button>
+                <button type="button" class="btn btn-primary" id = "submit_plant">Submit Plant</button>
+                
+                
             </div>
         <!-- </div> -->
       </div>
-      <center>
-        <div class="footerImage"> <img class="bottomImage" src="assets/plant-footer.png" width=700px> </div>
-      </center>
+      
     </div>
 
 
@@ -138,7 +230,132 @@
 
 
 
+    <script>
+      var imgurl;
+      function previewFile() {
+        console.log("gonna preview file");
+        var preview = document.getElementById('preview-image');
+        var file    = document.querySelector('input[type=file]').files[0];
+        var reader  = new FileReader();
 
+        reader.addEventListener("load", function () {
+          preview.src = reader.result;
+          imgurl = reader.result;
+        }, false);
+
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
+      //var x = document.getElementById("demo");
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      var geo;
+      /*
+      $("#locator").click((success)=>{
+        geo = navigator.geolocation;
+        var coords = geo.getCurrentPosition();
+        
+      });
+      */
+      var latitude;
+      var longitude;
+      function showPosition(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        $(".success_location").text("Success!");
+        console.log("latitude: ", latitude);
+        console.log("longitude: ", longitude);
+      }
+      function success(pos) {
+        var crd = pos.coords;
+
+        console.log('Your current position is:');
+        console.log(`Latitude : ${crd.latitude}`);
+        console.log(`Longitude: ${crd.longitude}`);
+        console.log(`More or less ${crd.accuracy} meters.`);
+      }
+      
+      $("#submit_plant").click(()=>{
+        var colors = [];
+        var features = [];
+        var types = [];
+        $.each($("input[name='color']:checked"), function(){
+            colors.push($(this).val());
+        });
+        $.each($("input[name='feature']:checked"), function(){
+            features.push($(this).val());
+        });
+        $.each($("input[name='type']:checked"), function(){
+            types.push($(this).val());
+        });
+        //var myurl = document.getElementById("photo_input").getElementsByTagName("img")[0].src;   
+        //alert(myurl);
+        //var end_url;
+        console.log("url of image: ", imgurl);
+        //convertToDataURLviaCanvas(imgurl, end_url);
+        //console.log(favorite);
+        var form_object = {
+          "name": $('#name').val(),
+          "features": features,
+          "colors": colors,
+          "types": types,
+          "xCord": longitude,
+          "yCord": latitude,
+          "imageFile": imgurl,
+          "location_description": $("#location_description").val(),
+          "plant_review": $("#plant_review").val()
+        };
+        console.log("form object", form_object);
+        $.ajax({
+          url: 'http://localhost:5000/submit/',
+          headers: {
+              "Access-Control-Allow-Origin": "*",
+          },
+          contentType: 'application/json',
+          method: 'POST',
+          dataType: 'json',
+          data: JSON.stringify(form_object),
+          success: function(data) {
+              console.log(data);
+              
+          },
+          error: function(jqXhr, textStatus, errorThrown) {
+              console.log(errorThrown)
+          }
+        });
+      });
+
+      function convertToDataURLviaCanvas(url, callback, outputFormat){
+          var img = new Image();
+          img.crossOrigin = 'Anonymous';
+          img.onload = function(){
+              var canvas = document.createElement('CANVAS');
+              var context = canvas.getContext('2d');
+              var dataURL;
+              canvas.height = this.height;
+              canvas.width = this.width;
+              context.drawImage(this, 0, 0);
+              dataURL = canvas.toDataURL(outputFormat);
+              callback(dataURL);
+              canvas = null; 
+          };
+          img.src = url;
+      }
+
+      //convertToDataURLviaCanvas('http://bit.ly/18g0VNp', function(base64Img){
+    // Base64DataURL
+      //});
+      /*
+      
+        */
+        
+    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="./app.js"></script>
