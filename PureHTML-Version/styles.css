@@ -161,6 +161,12 @@ header {
 
 }
 
+.plantFoundBox {
+  margin-left: 5%;
+  margin-top: 100px;
+  width: 100%;
+}
+
 
 .footerImage {
   position: fixed;
@@ -211,6 +217,17 @@ header {
   border-radius: 15px;
   outline-color: green;
   background-color: green;
+  box-shadow: 0px 0px 10px grey;
+  margin-top: 10px;
+}
+
+.infoContainer2 {
+  font-size: 14pt;
+  width: 35%;
+  padding: 10px;
+  border-radius: 15px;
+  outline-color: green;
+  background-color: pink;
   box-shadow: 0px 0px 10px grey;
   margin-top: 10px;
 }
