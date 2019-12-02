@@ -1,0 +1,292 @@
+
+body {
+  font-family: 'Roboto',Helvetica,Arial,sans-serif;
+}
+
+
+header {
+  padding: 0px 3px 0 0;
+  height: 56px;
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  background-color:  white;
+  position: fixed;
+  top: 0;
+  z-index: 98;
+}
+
+.header__container {
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: inherit;
+  background-color: #4e8623;
+}
+
+.header h1 {
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 58px;
+  padding-left: 170px;
+  margin-top: 0px;
+  color: black;
+  //text-align: center;
+}
+
+.menu {
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  will-change: transform;
+  transition: transform 0.33s cubic-bezier(0, 0, 0.30, 1);
+  box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  transform: translateX(-103%);
+}
+
+.menu--show {
+  transform: translateX(0);
+}
+
+.menu__overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.15s cubic-bezier(0, 0, 0.30, 1);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 98;
+}
+
+.menu__overlay--show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu__list {
+  width: inherit;
+  height: inherit;
+  overflow: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu__list li {
+  padding: 20px;
+  color: rgba(0,0,0,0.87);
+  cursor: pointer;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+}
+
+.menu__list li:hover,
+.menu__list li:active {
+  background: #e7e7e7;
+  border-left: 7px solid #19bf00;
+
+}
+
+.currentMenuSelection{
+  border-left: 7px solid #19bf00;
+}
+
+.menu__list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu__header {
+  height: 275px;
+  background: #fff;
+  color: #fff;
+  border-bottom: 1px solid black;
+  margin: auto;
+}
+
+.menu__icon {
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  position: relative;
+  margin: 4px;
+  display: inline-block;
+  color: black;
+}
+
+.menu__icon:focus,
+.menu__icon:hover {
+  opacity: 0.8;
+  //outline: 1px solid #fff;
+  box-shadow: 8px;
+  border: 1px solid black ;
+}
+
+.menu__icon svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+/* fin my flora css */
+
+
+.myBox {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  overflow: scroll;
+  float:left;
+  background-color: #e3bacb;
+}
+
+.postPlantBox {
+  margin-top: 100px;
+  margin-left: 10%;
+  width: 75%;
+
+}
+
+
+.footerImage {
+  position: fixed;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.bottomImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 100%; */
+}
+
+.logoContainer{
+  margin-top: 75px;
+}
+
+.beeContainer {
+  margin-top: 100px;
+}
+
+.beeImage {
+  transition: all .2s ease-in-out;
+}
+.beeImage:hover {
+  transform: scale(1.1);
+}
+
+.avatarContainer {
+  margin-top: 125px;
+
+}
+#USERNAME {
+  margin-top: 10px;
+  font-size: 14pt;
+}
+
+.plantAttributes {
+}
+
+.infoContainer {
+  font-size: 14pt;
+  width: 35%;
+  padding: 10px;
+  border-radius: 15px;
+  outline-color: green;
+  background-color: green;
+  box-shadow: 0px 0px 10px grey;
+  margin-top: 10px;
+}
+
+.play-button {
+  z-index: 6;
+  margin-left: 10px;
+}
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
+
+/*
+// original css
+*/
+
+.container{
+ margin-top: 52px;
+ font-weight: bold;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ overflow-y: scroll;
+ overflow-x: hidden;
+ height: 100%;
+}
+
+.row {
+ clear: both;
+ border: solid black;
+ border-width: 0px 0px 1px 0px;
+ width :100%;
+}
+
+.row:hover{
+  background: #d2d4d8;
+}
+
+.row:after {
+ clear: both;
+ box-shadow: 0 0 0px #ccc;
+}
+
+
+
+footer{
+ clear: both;
+}
+
+#draggable {
+  width: 80px;
+  height: 80px;
+  //padding: 0.5em;
+  //border: 3px solid black;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+ width: 6px;
+ height: 12px;
+}
+
+::-webkit-scrollbar-track {
+ border: 0px solid grey;
+ border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+ background: grey;
+ border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+ background: #black;
